@@ -4,7 +4,7 @@
 import useSWR from 'swr';
 import API from './index';
 
-export const useArticleList = () => {
+export const useAppointmentList = () => {
   const { data, error, mutate } = useSWR( '/articles', API.fetcher );
 
   return {
