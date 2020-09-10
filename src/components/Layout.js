@@ -4,8 +4,8 @@
 import React from 'react';
 import Routes from '../constants/routes';
 import Navigation from './Navigation';
-import { Layout, Row, Col, Button, Popover } from 'antd';
-import { FacebookOutlined, InstagramOutlined, GithubOutlined, MailOutlined, WhatsAppOutlined } from '@ant-design/icons';
+import { Layout, Row, Col, Button, Popover, Carousel } from 'antd';
+import { FacebookOutlined, FileSearchOutlined, InstagramOutlined, GithubOutlined, MailOutlined, WhatsAppOutlined } from '@ant-design/icons';
 import logo from '../images/logo-menta.png';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
@@ -23,6 +23,15 @@ const Footer = Layout.Footer;
  * @returns {JSX.Element}
  * @constructor
  */
+
+const contentStyle = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
+
 const MainLayout = props => {
   console.log( 'props', props );
   return (
@@ -83,12 +92,27 @@ const MainLayout = props => {
 
 
         <Content className='content'>
-          <Row type='flex' justify='center' style={ { flex: 'auto' } }>
-            <Col xs={ 22 } md={ 20 }>
-              { props.children }
-            </Col>
+          <Row justify="center">
+            <Col span={1} icon={ <FileSearchOutlined /> }>BUSCA</Col>
+            <Col span={1}>AGENDA</Col>
+            <Col span={2}>CONFIRMA</Col>
           </Row>
         </Content>
+
+        <Carousel autoplay>
+          <div>
+            <h3 style={contentStyle}>1</h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>2</h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>3</h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>4</h3>
+          </div>
+        </Carousel>
 
         <Footer className='footer'>
           <Row>
