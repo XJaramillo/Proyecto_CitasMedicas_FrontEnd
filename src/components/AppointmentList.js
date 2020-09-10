@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Skeleton, Card, Col, Row, Radio, Typography, Button } from 'antd';
 import Routes from '../constants/routes';
 import { Link } from 'react-router-dom';
-import { useArticleList } from '../data/useArticleList';
+import { useAppointmentList } from '../data/useAppointmentList';
 import ShowError from './ShowError';
 
 const { Text } = Typography;
 
-const ArticleList = ( props ) => {
+const AppointmentList = ( props ) => {
 
-    const { articles, isLoading, isError, mutate } = useArticleList();
+    const { appointment, isLoading, isError, mutate } = useAppointmentList();
 
 
     if( isLoading ) {
@@ -36,7 +36,7 @@ const ArticleList = ( props ) => {
 
         <Row justify='center' gutter={ 30 }>
           {
-            articles.map( ( article, i ) => (
+            appointment.map( ( appointment, i ) => (
               <li>
                   {appointment}
               </li>
@@ -48,4 +48,4 @@ const ArticleList = ( props ) => {
   }
 ;
 
-export default ArticleList;
+export default AppointmentList;

@@ -29,15 +29,15 @@ const MainLayout = props => {
     <div className='app'>
       <Layout>
         <Row type='flex' justify='center' className='header-wrapper'>
-          <Col span={ 20 }>
+          <Col span={ 22 }>
             <Header className='header'>
               <Row type='flex' justify='space-between' align='bottom'>
-                <Col xs={ 24 } md={ 6 } className='logo-wrapper'>
+                <Col xs={ 20 } md={ 1 } className='logo-wrapper'>
                   <a href={ process.env.REACT_APP_DOMAIN }>
                     <img className='logo' src={ logo } alt='Grupo Menta' /></a>
                 </Col>
 
-                <Col md={ 14 } align='right' className='main-menu'>
+                <Col md={ 16 } align='right' className='main-menu'>
                   <Navigation mode='horizontal' />
                 </Col>
 
@@ -92,9 +92,6 @@ const MainLayout = props => {
 
         <Footer className='footer'>
           <Row>
-            <Col xs={ { span: 24 } } md={ 8 } className='logo-blanco'>
-              LOGO
-            </Col>
 
             <Col xs={ {
               span: 24,
@@ -121,12 +118,12 @@ const MainLayout = props => {
                  } }
                  className='contact-links'>
               <p><strong>Contáctanos</strong></p>
-              <p><MailOutlined /> <a href='mailto:chalo.salvador@grupomenta.com'>chalo.salvador@grupomenta.com</a></p>
-              <p><WhatsAppOutlined /> <a href='https://wa.me/593984794808' target='_blank' rel='noopener noreferrer'>+593
-                9-8479-4808</a></p>
+              <p><MailOutlined /> <a href='mailto:citasmed@gmail.com'>citasmed@gmail.com</a></p>
+              <p><WhatsAppOutlined /> <a href='https://wa.me/593999999999' target='_blank' rel='noopener noreferrer'>+593
+                9-9999-9999</a></p>
               <p><GithubOutlined /> <a href='https://github.com/chalosalvador'
                                        target='_blank'
-                                       rel='noopener noreferrer'>@chalosalvador</a>
+                                       rel='noopener noreferrer'>@citasmed  </a>
               </p>
             </Col>
           </Row>
