@@ -5,13 +5,15 @@ import React, { useState } from 'react';
 
 import Routes from '../constants/routes';
 import { useAuth } from '../providers/Auth';
-import { Menu } from 'antd';
-import { LogoutOutlined, LoginOutlined, LoadingOutlined, UserOutlined } from '@ant-design/icons';
+import {Menu, Input, Col} from 'antd';
+import { LogoutOutlined, LoginOutlined, LoadingOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/navigation.css';
 
 const linkStyle = {};
+const { Search } = Input;
 
+const { SubMenu } = Menu;
 const Navigation = ( props ) => {
   let location = useLocation();
 
@@ -39,6 +41,9 @@ const Navigation = ( props ) => {
 
   return (
     <>
+
+
+
       <Menu
         mode={ props.mode }
         onClick={ handleClick }
@@ -46,29 +51,35 @@ const Navigation = ( props ) => {
         theme='dark'
         selectedKeys={ [ menuState.current ] }
         style={ {
-          lineHeight: '64px',
+          lineHeight: '65px',
           width: 'fit-content'
         } }
       >
+        <Search placeholder="Buscar sintomas" onSearch={value => console.log(value)} enterButton
+                style={{marginRight: 15,marginTop:15, width: 225 }}/>
+
         <Menu.Item key={ Routes.HOME }>
-          <Link to={ Routes.HOME } style={ linkStyle }>Home</Link>
+          <Link to={ Routes.HOME } style={ linkStyle }>Inicio</Link>
         </Menu.Item>
 
         <Menu.Item key={ Routes.ARTICLES }>
-          <Link to={ Routes.ARTICLES } style={ linkStyle }>Articles</Link>
+          <Link to={ Routes.ARTICLES } style={ linkStyle }>Como funciona</Link>
         </Menu.Item>
 
         <Menu.Item key={ Routes.PRIVATE }>
-          <Link to={ Routes.PRIVATE } style={ linkStyle }>Privada</Link>
-        </Menu.Item>
-
-        <Menu.Item key={ Routes.ANTD }>
-          <Link to={ Routes.ANTD } style={ linkStyle }>ANTD</Link>
+          <Link to={ Routes.PRIVATE } style={ linkStyle }>Citas Agendadas</Link>
         </Menu.Item>
 
         <Menu.Item key={ Routes.ABOUT }>
-          <Link to={ Routes.ABOUT } style={ linkStyle }>About</Link>
+          <Link to={ Routes.ABOUT } style={ linkStyle }>Doctores Disponibles</Link>
         </Menu.Item>
+
+        <SubMenu icon={<MailOutlined />} title="Registrarse">
+          <Menu.ItemGroup title="Registrate como:">
+            <Menu.Item key="setting:1">Doctor</Menu.Item>
+            <Menu.Item key="setting:2">Paciente</Menu.Item>
+          </Menu.ItemGroup>
+        </SubMenu>
 
         {
           isAuthenticated
@@ -93,15 +104,17 @@ const Navigation = ( props ) => {
               </Menu.Item>
             </Menu.SubMenu>
             : <Menu.Item key={ Routes.LOGIN }>
+
               <Link to={ Routes.LOGIN }>
                 {
                   isCheckingAuth
                     ? <LoadingOutlined />
-                    : <><LoginOutlined /> Ingresar</>
+                    : <><LoginOutlined /> Iniciar Sesion</>
                 }
               </Link>
             </Menu.Item>
         }
+
       </Menu>
     </>
   );

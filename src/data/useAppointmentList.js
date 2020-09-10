@@ -5,10 +5,10 @@ import useSWR from 'swr';
 import API from './index';
 
 export const useAppointmentList = () => {
-  const { data, error, mutate } = useSWR( '/articles', API.fetcher );
+  const { data, error, mutate } = useSWR( '/appointments', API.fetcher );
 
   return {
-    articles: data && data.data,
+    appointments: data && data.data,
     isLoading: !error && !data,
     isError: error,
     mutate
